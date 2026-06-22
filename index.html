@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JW Garten & Forst – professionelle Baumfällung, Baumpflege und Gefahrenfällung mit Kompetenz, Teamgeist und moderner Ausrüstung.">
+    <title>JW Garten & Forst – Baum & Landschaft</title>
+
+    <style>
+        :root {
+            --anthracite: #1f1f1f;
+            --dark-gray: #2b2b2b;
+            --orange: #f57c00;
+            --green: #4caf50;
+            --white: #ffffff;
+            --text-muted: #cccccc;
+            --panel-light: #333333;
+            --border: rgba(255, 255, 255, 0.09);
+            --orange-border: rgba(245, 124, 0, 0.8);
+            --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+            --radius: 18px;
+            --max-width: 1180px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--anthracite);
+            color: var(--white);
+            line-height: 1.6;
+            padding-top: 78px;
+        }
+
+        a {
+            color: var(--orange);
+            text-decoration: none;
+        }
+
+        p {
+            color: var(--text-muted);
+        }
+
+        .container {
+            width: min(100% - 40px, var(--max-width));
+            margin-inline: auto;
+        }
+
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(31, 31, 31, 0.94);
+            border-bottom: 2px solid rgba(245, 124, 0, 0.72);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+            backdrop-filter: blur(14px);
+        }
+
+        .nav {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--white);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .brand-logo {
+            width: 46px;
+            height: 46px;
+            flex: 0 0 auto;
+        }
+
+        .brand span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background-color: var(--orange);
+            color: var(--anthracite) !important;
+            font-weight: 800;
+            box-shadow: 0 10px 26px rgba(245, 124, 0, 0.22);
+        }
+
+        header {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 85% 18%, rgba(76, 175, 80, 0.18), transparent 30%),
+                radial-gradient(circle at 18% 20%, rgba(245, 124, 0, 0.16), transparent 28%),
+                linear-gradient(135deg, #1c1c1c, #2a2a2a);
+            padding: 82px 0 90px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+            align-items: center;
+            gap: 56px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--green);
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 32px;
+            height: 3px;
+            border-radius: 999px;
+            background-color: var(--orange);
+        }
+
+        .header-text h1 {
+            max-width: 780px;
+            font-size: clamp(3rem, 8vw, 6.4rem);
+            line-height: 0.95;
+            margin-bottom: 24px;
+            letter-spacing: -0.055em;
+        }
+
+        .header-text h1 span {
+            color: var(--orange);
+        }
+
+        .header-text p {
+            max-width: 610px;
+            font-size: clamp(1.05rem, 2vw, 1.24rem);
+            margin-bottom: 34px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            background-color: var(--orange);
+            color: var(--anthracite);
+            padding: 14px 28px;
+            font-weight: 800;
+            border-radius: 999px;
+            box-shadow: 0 14px 36px rgba(245, 124, 0, 0.24);
+        }
+
+        .secondary-link {
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .media-frame {
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+                #444;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+        }
+
+        .media-frame:hover {
+            border-color: var(--orange-border);
+            box-shadow: 0 0 0 2px rgba(245, 124, 0, 0.26), 0 18px 42px rgba(0, 0, 0, 0.28);
+        }
+
+        .header-video {
+            min-height: 420px;
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .header-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+            opacity: 0.92;
+        }
+
+        .video-placeholder-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            padding: 32px;
+        }
+
+        .play-button {
+            width: 92px;
+            height: 92px;
+            border-radius: 999px;
+            border: 2px solid rgba(255, 255, 255, 0.42);
+            background: rgba(245, 124, 0, 0.92);
+            color: var(--anthracite);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            font-weight: 900;
+            box-shadow: 0 18px 46px rgba(245, 124, 0, 0.28);
+            padding-left: 6px;
+        }
+
+        .video-placeholder-content strong {
+            color: var(--white);
+            font-size: 1.05rem;
+        }
+
+        .video-placeholder-content span {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+        }
+
+        .hero-badge {
+            position: absolute;
+            right: 24px;
+            bottom: 24px;
+            max-width: 230px;
+            padding: 18px;
+            border-radius: 16px;
+            background: rgba(31, 31, 31, 0.86);
+            border: 1px solid var(--border);
+            color: var(--white);
+            text-align: left;
+            backdrop-filter: blur(10px);
+            z-index: 3;
+        }
+
+        .hero-badge strong {
+            display: block;
+            color: var(--green);
+            margin-bottom: 4px;
+        }
+
+        section {
+            padding: 92px 0;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: end;
+            margin-bottom: 42px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.1rem);
+            line-height: 1.05;
+            border-left: 6px solid var(--orange);
+            padding-left: 18px;
+            letter-spacing: -0.035em;
+        }
+
+        .section-intro {
+            max-width: 430px;
+            font-size: 1rem;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .service-box,
+        .vehicle-box,
+        .contact-box {
+            background-color: var(--dark-gray);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .service-box {
+            height: 100%;
+            min-height: 390px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-box:hover,
+        .vehicle-box:hover,
+        .contact-box:hover {
+            transform: translateY(-4px);
+            border-color: rgba(245, 124, 0, 0.36);
+            background-color: var(--panel-light);
+        }
+
+        .service-image-wrap {
+            height: 150px;
+            overflow: hidden;
+            background-color: #444;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0;
+            font-size: 0.9rem;
+            transition: transform 0.28s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .service-box:hover .service-image {
+            transform: scale(1.045);
+        }
+
+        .service-content {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .service-number {
+            color: rgba(255, 255, 255, 0.24);
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            margin-bottom: 18px;
+        }
+
+        .service-box h3 {
+            color: var(--green);
+            margin-bottom: 12px;
+            font-size: clamp(1rem, 1.35vw, 1.16rem);
+            line-height: 1.22;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .service-box h3::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.24em;
+            width: 4px;
+            height: 1.05em;
+            border-radius: 999px;
+            background-color: var(--orange);
+        }
+
+        .service-box p {
+            font-size: 0.94rem;
+        }
+
+        .about-section {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0));
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .about-text {
+            display: grid;
+            gap: 20px;
+        }
+
+        .about-text .lead {
+            color: var(--white);
+            font-size: 1.25rem;
+            line-height: 1.55;
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 12px;
+        }
+
+        .value {
+            padding: 18px;
+            border-radius: 14px;
+            background-color: rgba(255, 255, 255, 0.045);
+            border: 1px solid var(--border);
+        }
+
+        .value strong {
+            display: block;
+            color: var(--orange);
+            margin-bottom: 6px;
+        }
+
+        .about-image {
+            min-height: 360px;
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+        }
+
+        .vehicles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .vehicle-box {
+            padding: 18px;
+        }
+
+        .vehicle-image {
+            min-height: 220px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+        }
+
+        .vehicle-box h3 {
+            color: var(--white);
+            margin-bottom: 8px;
+            font-size: 1.08rem;
+        }
+
+        .contact {
+            background:
+                linear-gradient(135deg, rgba(245, 124, 0, 0.08), transparent 38%),
+                #181818;
+        }
+
+        .contact-panel {
+            padding: 42px;
+            border-radius: 26px;
+            background-color: rgba(255, 255, 255, 0.035);
+            border: 1px solid var(--border);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+        }
+
+        .contact-box {
+            padding: 24px;
+        }
+
+        .contact-box strong {
+            display: block;
+            color: var(--green);
+            margin-bottom: 8px;
+            font-size: 0.92rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .contact-box span,
+        .contact-box a {
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        footer {
+            background-color: #111;
+            padding: 32px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 1180px) {
+            .services {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 1020px) {
+            .hero,
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .services,
+            .contact-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .vehicles {
+                grid-template-columns: 1fr;
+            }
+
+            .header-video,
+            .about-image {
+                min-height: 320px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .container {
+                width: min(100% - 28px, var(--max-width));
+            }
+
+            body {
+                padding-top: 118px;
+            }
+
+            header {
+                padding: 56px 0 64px;
+            }
+
+            .nav {
+                min-height: 118px;
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+                gap: 12px 18px;
+            }
+
+            .nav-cta {
+                min-height: 36px;
+                padding: 8px 14px;
+            }
+
+            section {
+                padding: 64px 0;
+            }
+
+            .section-head {
+                display: block;
+            }
+
+            .section-intro {
+                margin-top: 18px;
+            }
+
+            .services,
+            .values,
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .service-box {
+                min-height: 360px;
+            }
+
+            .service-image-wrap {
+                height: 180px;
+            }
+
+            .contact-panel {
+                padding: 24px;
+            }
+
+            .hero-actions {
+                align-items: stretch;
+            }
+
+            .cta-button,
+            .secondary-link {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="site-nav">
+        <div class="container">
+            <nav class="nav" aria-label="Hauptnavigation">
+                <a href="#" class="brand">
+                    <svg class="brand-logo" viewBox="0 0 100 100" aria-label="JW Garten und Forst Logo" role="img">
+                        <circle cx="50" cy="50" r="46" fill="#1f1f1f" stroke="#f57c00" stroke-width="5"/>
+                        <path d="M50 18 C34 32 26 44 26 58 C26 74 38 84 50 84 C62 84 74 74 74 58 C74 44 66 32 50 18Z" fill="#4caf50"/>
+                        <path d="M50 34 L50 82" stroke="#1f1f1f" stroke-width="7" stroke-linecap="round"/>
+                        <path d="M50 52 C42 45 36 41 30 38" stroke="#1f1f1f" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M50 58 C59 50 65 46 72 43" stroke="#1f1f1f" stroke-width="5" stroke-linecap="round"/>
+                        <text x="50" y="59" text-anchor="middle" font-size="22" font-weight="800" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif">JW</text>
+                    </svg>
+                    <span>JW</span> Garten & Forst
+                </a>
+                <div class="nav-links">
+                    <a href="#leistungen">Leistungen</a>
+                    <a href="#ueber-uns">Über uns</a>
+                    <a href="#auftreten">Auftreten</a>
+                    <a href="#kontakt" class="nav-cta">Kontakt aufnehmen</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="hero">
+                <div class="header-text">
+                    <div class="eyebrow">Baumdienstleistungen</div>
+                    <h1><span>JW</span><br>Garten & Forst</h1>
+                    <p>
+                        Professionelle Baumfällung, Baumpflege und Gefahrenfällung.
+                        Sicher. Präzise. Nachhaltig.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#kontakt" class="cta-button">Kontakt aufnehmen</a>
+                        <a href="#leistungen" class="secondary-link">Leistungen ansehen</a>
+                    </div>
+                </div>
+
+                <div class="header-video media-frame" role="img" aria-label="Videoplatzhalter für Imagefilm">
+                    <!--
+                        Späteres Video hier einsetzen:
+                        <video autoplay muted loop playsinline poster="hero-poster.jpg">
+                            <source src="hero-film.mp4" type="video/mp4">
+                        </video>
+                    -->
+                    <div class="video-placeholder-content">
+                        <div class="play-button">▶</div>
+                        <strong>Imagefilm Platzhalter</strong>
+                        <span>Hier kann später ein kurzer Film automatisch in Schleife laufen.</span>
+                    </div>
+                    <div class="hero-badge">
+                        <strong>Fachgerecht im Einsatz</strong>
+                        Teamorientiert, strukturiert und mit sicherem Blick für jedes Gelände.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="leistungen">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">Unsere Leistungen</h2>
+                <p class="section-intro">
+                    Klare Abläufe, passende Technik und ein geschultes Team bilden die Grundlage für sichere Arbeit am Baum.
+                </p>
+            </div>
+
+            <div class="services">
+                <div class="service-box">
+                    <div class="service-image-wrap">
+                        <div class="service-image media-frame" role="img" aria-label="Bildplatzhalter Baumfällung">
+                            IMAGE PLACEHOLDER<br>Motorsäge / Stamm
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-number">01</span>
+                        <h3>Baumfällung</h3>
+                        <p>Kontrollierte Fällung jeder Größenordnung – sicher, effizient und fachgerecht.</p>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-image-wrap">
+                        <div class="service-image media-frame" role="img" aria-label="Bildplatzhalter Gefahrenfällung">
+                            IMAGE PLACEHOLDER<br>Kletterer / Risikobaum
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-number">02</span>
+                        <h3>Gefahrenfällung</h3>
+                        <p>Problem- und Risikobäume in sensiblen Bereichen – mit Erfahrung und Präzision.</p>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-image-wrap">
+                        <div class="service-image media-frame" role="img" aria-label="Bildplatzhalter Sturmfällungen">
+                            IMAGE PLACEHOLDER<br>Sturmschaden / Windbruch
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-number">03</span>
+                        <h3>Sturmfällungen</h3>
+                        <p>Schnelle und sichere Beseitigung von Sturm- und Windbruchschäden – fachgerecht, kontrolliert und zuverlässig nach Unwettern.</p>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-image-wrap">
+                        <div class="service-image media-frame" role="img" aria-label="Bildplatzhalter Baumpflege">
+                            IMAGE PLACEHOLDER<br>Kronenpflege
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-number">04</span>
+                        <h3>Baumpflege</h3>
+                        <p>Erhalt, Pflege und Entwicklung von Bäumen nach modernen Standards.</p>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-image-wrap">
+                        <div class="service-image media-frame" role="img" aria-label="Bildplatzhalter Kletter- und Steigertechnik">
+                            IMAGE PLACEHOLDER<br>Hubsteiger / Seilklettertechnik
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <span class="service-number">05</span>
+                        <h3>Kletter- & Steigertechnik</h3>
+                        <p>Zugriff auch bei schwierigsten Bedingungen – bodenschonend und flexibel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ueber-uns" class="about-section">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">Über JW Garten & Forst</h2>
+                <p class="section-intro">
+                    Jung im Auftritt, professionell in der Ausführung: JW Garten & Forst verbindet moderne Baumpflege mit verlässlicher Projektabwicklung.
+                </p>
+            </div>
+
+            <div class="about">
+                <div class="about-text">
+                    <p class="lead">
+                        JW Garten & Forst steht für moderne Baumdienstleistungen, verantwortungsvolle Landschaftspflege und kundenorientiertes Arbeiten.
+                    </p>
+                    <p>
+                        Unser Anspruch ist höchste Qualität – heute, morgen und langfristig.
+                        Dafür arbeiten wir strukturiert, sicherheitsbewusst und als eingespieltes Team.
+                    </p>
+
+                    <div class="values">
+                        <div class="value">
+                            <strong>Kompetenz</strong>
+                            <p>Fachliche Einschätzung und saubere Ausführung.</p>
+                        </div>
+                        <div class="value">
+                            <strong>Teamgeist</strong>
+                            <p>Abgestimmte Abläufe vom Erstkontakt bis zum Einsatz.</p>
+                        </div>
+                        <div class="value">
+                            <strong>Verlässlichkeit</strong>
+                            <p>Klare Kommunikation und professionelles Auftreten.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image media-frame" role="img" aria-label="Bildplatzhalter für Arbeit oder Naturmotiv">
+                    IMAGE PLACEHOLDER<br>Arbeit / Natur
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="auftreten">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">Unser Auftreten</h2>
+                <p class="section-intro">
+                    Ein einheitlicher Außenauftritt macht Kompetenz sichtbar – auf der Baustelle, beim Kunden und unterwegs.
+                </p>
+            </div>
+
+            <div class="vehicles">
+                <div class="vehicle-box">
+                    <div class="vehicle-image media-frame" role="img" aria-label="Bildplatzhalter für spezialisierte Technik">
+                        IMAGE PLACEHOLDER<br>Spezialisierte Technik
+                    </div>
+                    <h3>Spezialisierte Technik</h3>
+                    <p>Passende Ausrüstung für Fällung, Pflege und Sicherungsarbeiten – abgestimmt auf Gelände, Baumzustand und Einsatzlage.</p>
+                </div>
+
+                <div class="vehicle-box">
+                    <div class="vehicle-image media-frame" role="img" aria-label="Bildplatzhalter für Nissan Navara">
+                        IMAGE PLACEHOLDER<br>Nissan Navara
+                    </div>
+                    <h3>Geländegängige Mobilität</h3>
+                    <p>Flexibel, geländegängig und perfekt für anspruchsvolle Einsätze.</p>
+                </div>
+
+                <div class="vehicle-box">
+                    <div class="vehicle-image media-frame" role="img" aria-label="Bildplatzhalter für Baustellensicherung">
+                        IMAGE PLACEHOLDER<br>Baustellensicherung
+                    </div>
+                    <h3>Sichere Einsatzabläufe</h3>
+                    <p>Klare Absicherung, strukturierte Arbeitsbereiche und saubere Kommunikation für professionelle Abläufe vor Ort.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="contact">
+        <div class="container">
+            <div class="contact-panel">
+                <div class="section-head">
+                    <h2 class="section-title">Kontakt</h2>
+                    <p class="section-intro">
+                        Für Baumfällung, Baumpflege oder eine erste Einschätzung vor Ort: direkt Kontakt aufnehmen.
+                    </p>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-box">
+                        <strong>Telefon</strong>
+                        <span>+49 XX XXXXXXXX</span>
+                    </div>
+
+                    <div class="contact-box">
+                        <strong>E-Mail</strong>
+                        <a href="mailto:info@jwgartenundforst.de">info@jwgartenundforst.de</a>
+                    </div>
+
+                    <div class="contact-box">
+                        <strong>Instagram</strong>
+                        <span>@jwgartenundforst</span>
+                    </div>
+
+                    <div class="contact-box">
+                        <strong>Region</strong>
+                        <span>[Einsatzgebiet eintragen]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            © JW Garten & Forst · Alle Rechte vorbehalten
+        </div>
+    </footer>
+</body>
+</html>
